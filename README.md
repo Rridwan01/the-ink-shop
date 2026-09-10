@@ -21,7 +21,7 @@ A bespoke, editorial tattoo consultation web application designed for high-end t
    - **Step 2: Tattoo Vision & Creative Freedom**: Visual style selector cards, pure black & grey vs. color accents, 3-level creative liberty rating, guided description prompts.
    - **Step 3: Placement, Scale & Smart Media Uploads**: Interactive body placement chips, visual size guide, conditional cover-up flow (asks for existing tattoo age and laser history), drag-and-drop multi-file reference previewer with live thumbnail removal.
    - **Step 4: Scheduling & Availability**: Timeline selector, date range window, interactive Days $	imes$ Time Slots matrix (Mon/Tue/Thu/Fri/Sat $	imes$ 11:30 AM, 2:30 PM, 4:30 PM).
-   - **Step 5: Investment & Studio Agreements**: Tiered budget chips, numbing cream preference, deposit payment method (Zelle, Apple Pay, Venmo, PayPal, Cash App, E-Transfer), and 4 mandatory studio policy checkboxes ($200 deposit terms, 72h reschedule window, private studio rule, 18+ ID requirement).
+   - **Step 5: Investment & Studio Agreements**: Tiered budget chips, numbing cream preference,  4 mandatory studio policy checkboxes ($200 deposit terms, 72h reschedule window, private studio rule, 18+ ID requirement).
 
 4. **Confirmation Receipt**:
    - Personalized receipt summary card for the client with a *"Save / Print Request Copy"* button and next steps roadmap.

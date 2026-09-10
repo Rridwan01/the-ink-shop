@@ -1,5 +1,5 @@
 /**
- * JILLIAN TATTOO ATELIER — BESPOKE BOOKING ENGINE
+ * SANCTUM TATTOO ATELIER — BESPOKE BOOKING ENGINE
  * Elegant 5-step consultation workflow, drag & drop image handling,
  * and real-time Discord webhook owner alerts on click & submit.
  */
@@ -53,7 +53,7 @@
       }
 
       const payload = {
-        username: "Jillian's Tattoo Atelier",
+        username: "Sanctum Tattoo Atelier",
         avatar_url: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=200&auto=format&fit=crop&q=80",
         embeds: [{
           title: title,
@@ -61,7 +61,7 @@
           color: color,
           fields: fields,
           footer: {
-            text: "Jillian Atelier • Booking Notification Desk"
+            text: "Sanctum Atelier • Booking Notification Desk"
           },
           timestamp: new Date().toISOString()
         }]
@@ -133,7 +133,7 @@
         { name: "💡 Creative Freedom", value: data.creativeFreedom, inline: false },
         { name: "📝 Concept Details", value: data.conceptDescription || 'None provided', inline: false },
         { name: "🗓️ Target Schedule", value: data.slots.length > 0 ? data.slots.join(', ') : 'Flexible schedule requested', inline: false },
-        { name: "💰 Budget & Deposit Method", value: `**Budget:** ${data.budget}\n**Deposit Channel:** ${data.depositMethod}\n**Numbing Cream:** ${data.numbingCream}`, inline: false }
+        { name: "💰 Budget & Session Plan", value: `**Budget:** ${data.budget}\n**Deposit:** $200 (To be sent in DM)\n**Numbing Cream:** ${data.numbingCream}`, inline: false }
       ];
 
       if (data.additionalQuestions) {
@@ -204,32 +204,7 @@
     });
   }
 
-  function initPaymentMethods() {
-    const container = document.getElementById('payment-methods-container');
-    if (!container) return;
-    const cfg = getConfig();
-    const methods = cfg.paymentMethods || [
-      { id: "zelle", name: "Zelle", icon: "⚡" },
-      { id: "applepay", name: "Apple Pay", icon: "" },
-      { id: "venmo", name: "Venmo", icon: "💸" },
-      { id: "paypal", name: "PayPal", icon: "🅿️" }
-    ];
-
-    container.innerHTML = '';
-
-    methods.forEach((pm, idx) => {
-      const label = document.createElement('label');
-      label.className = 'payment-method-card';
-      label.innerHTML = `
-        <input type="radio" name="depositMethod" value="${pm.name}" ${idx === 0 ? 'checked' : ''} required />
-        <div class="pm-inner">
-          <span class="pm-icon">${pm.icon}</span>
-          <span class="pm-name">${pm.name}</span>
-        </div>
-      `;
-      container.appendChild(label);
-    });
-  }
+// Payment method selection removed (handled directly in DM)
 
   // =========================================================================
   // Media Upload Handlers
@@ -498,8 +473,7 @@
       slots: Array.from(state.selectedSlots),
       budget: fd.get('budget') || '',
       numbingCream: fd.get('numbingCream') || '',
-      depositMethod: fd.get('depositMethod') || '',
-      additionalQuestions: fd.get('additionalQuestions') || '',
+            additionalQuestions: fd.get('additionalQuestions') || '',
       referenceCount: state.referenceImages.length,
       hasPlacementPhoto: !!state.placementImage,
       hasCoverupPhoto: !!state.coverupImage
@@ -537,8 +511,8 @@
           <span class="receipt-value">${data.budget}</span>
         </div>
         <div class="receipt-row">
-          <span class="receipt-label">Deposit Channel</span>
-          <span class="receipt-value">${data.depositMethod} ($200 deposit invoice dispatched upon acceptance)</span>
+          <span class="receipt-label">Deposit Protocol</span>
+          <span class="receipt-value">$200 security deposit details &amp; secure link provided directly via DM upon acceptance</span>
         </div>
       `;
     }
@@ -755,7 +729,6 @@
   // =========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initAvailabilityMatrix();
-    initPaymentMethods();
     setupImageUploaders();
     initEventListeners();
 
