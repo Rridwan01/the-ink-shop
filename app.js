@@ -416,6 +416,26 @@
       ind.classList.toggle('active', iStep <= state.currentStep);
     });
 
+    // Update mobile step indicator
+    const stepTitles = [
+      "IDENTITY & CONTACT",
+      "ARTISTIC VISION",
+      "PLACEMENT & CANVAS",
+      "DATES & SCHEDULE",
+      "INVESTMENT & TERMS"
+    ];
+    const mobileBadge = document.getElementById('mobile-step-badge');
+    if (mobileBadge) {
+      mobileBadge.innerHTML = `
+        <span class="m-step-indicator">STEP 0${state.currentStep} OF 0${state.totalSteps}</span>
+        <span class="m-step-title">&bull; ${stepTitles[state.currentStep - 1] || 'CONSULTATION'}</span>
+      `;
+    }
+    const mobileProgressFill = document.getElementById('mobile-progress-fill');
+    if (mobileProgressFill) {
+      mobileProgressFill.style.width = `${(state.currentStep / state.totalSteps) * 100}%`;
+    }
+
     // Update navigation buttons
     const btnPrev = document.getElementById('btn-prev-step');
     const btnNext = document.getElementById('btn-next-step');
@@ -551,6 +571,7 @@
     document.getElementById('btn-start-booking')?.addEventListener('click', startBooking);
     document.getElementById('btn-start-booking-2')?.addEventListener('click', startBooking);
     document.getElementById('header-book-btn')?.addEventListener('click', startBooking);
+    document.getElementById('btn-header-start')?.addEventListener('click', startBooking);
 
     // Header Home Link
     document.getElementById('header-brand-link')?.addEventListener('click', (e) => {
