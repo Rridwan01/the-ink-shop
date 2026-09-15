@@ -7,11 +7,30 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>The Ink Shop — Private Tattoo Atelier &amp; Consultation</title>
-  <meta name="description" content="Independent private tattoo studio specializing in fine-line, blackwork, and custom anatomical illustrative tattooing. By appointment only." />
-  
+  <meta name="description" id="meta-desc" content="The Ink Shop is an independent private tattoo studio in NYC specializing in fine-line, blackwork, and custom anatomical illustrative tattooing. By appointment only." />
+  <link rel="canonical" href="https://rridwan01.github.io/the-ink-shop/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rridwan01.github.io/the-ink-shop/" />
+  <meta property="og:title" id="og-title" content="The Ink Shop — Private Tattoo Atelier &amp; Consultation" />
+  <meta property="og:description" id="og-desc" content="Permanent craft tailored to human anatomy. Bespoke fine-line, illustrative blackwork, and micro-realism in a private NYC studio sanctuary." />
+  <meta property="og:image" content="https://rridwan01.github.io/the-ink-shop/og-image.svg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://rridwan01.github.io/the-ink-shop/" />
+  <meta name="twitter:title" id="twitter-title" content="The Ink Shop — Private Tattoo Atelier &amp; Consultation" />
+  <meta name="twitter:description" id="twitter-desc" content="Permanent craft tailored to human anatomy. Bespoke fine-line, illustrative blackwork, and micro-realism in a private NYC studio sanctuary." />
+  <meta name="twitter:image" content="https://rridwan01.github.io/the-ink-shop/og-image.svg" />
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="studio-theme">
@@ -91,7 +110,7 @@
               <span>40.7128&deg; N, 74.0060&deg; W</span>
             </div>
             <div class="visual-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=900&q=80" alt="Tattoo artist workspace" class="studio-photo" />
+              <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=900&q=80" alt="The Ink Shop private sterile workspace and tattoo equipment sanctuary in NYC" class="studio-photo" fetchpriority="high" width="900" height="1125" />
             </div>
             <div class="visual-caption">
               Private room consultation, single-use sterilized cartridges, and natural ambient light.
@@ -826,9 +845,13 @@
       </div>
       <div class="footer-col text-right">
         <div class="footer-nav">
-          <a href="javascript:void(0)" id="footer-faq-link">Studio Etiquette &amp; Policies</a>
+          <a href="javascript:void(0)" id="footer-faq-link">Studio Policies &amp; FAQ</a>
           <span>&bull;</span>
-          <a href="javascript:void(0)" id="footer-settings-link">Studio Admin Settings</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <span>&bull;</span>
+          <a href="privacy.html">Privacy Policy</a>
+          <span>&bull;</span>
+          <a href="javascript:void(0)" id="footer-settings-link">Admin Telemetry</a>
         </div>
         <span class="copyright-note">&copy; <span id="cur-year"></span> All custom works and concepts copyright The Ink Shop.</span>
       </div>
@@ -837,5 +860,20 @@
 
   <script src="config.js"></script>
   <script src="app.js"></script>
+
+  <!-- COOKIE & PRIVACY BANNER -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie and privacy consent">
+    <div class="cookie-content">
+      <p>
+        <strong>Studio Privacy:</strong> We use minimal local storage cookies to remember your consultation preferences and session progress. No advertising trackers are deployed.
+      </p>
+      <div class="cookie-actions">
+        <a href="privacy.html" class="cookie-learn-link">Read Privacy Policy</a>
+        <button type="button" class="btn-secondary btn-sm" id="btn-cookie-decline">Decline</button>
+        <button type="button" class="btn-primary btn-sm" id="btn-cookie-accept">Accept &amp; Continue</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

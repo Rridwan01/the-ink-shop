@@ -43,6 +43,44 @@
   // =========================================================================
   // Telemetry & Owner Notification Service
   // =========================================================================
+  
+  // =========================================================================
+  // Analytics & SEO State Service
+  // =========================================================================
+  const AnalyticsService = {
+    track(eventName, params = {}) {
+      const payload = {
+        event: eventName,
+        timestamp: new Date().toISOString(),
+        ...params
+      };
+      // Log to console in dev mode
+      console.info('[Analytics]', eventName, payload);
+
+      // Trigger GA4 dataLayer if present
+      if (window.gtag) {
+        window.gtag('event', eventName, params);
+      } else if (window.dataLayer) {
+        window.dataLayer.push({ event: eventName, ...params });
+      }
+    },
+
+    updateMeta(title, desc) {
+      document.title = title;
+      const metaDesc = document.getElementById('meta-desc');
+      const ogTitle = document.getElementById('og-title');
+      const ogDesc = document.getElementById('og-desc');
+      const twTitle = document.getElementById('twitter-title');
+      const twDesc = document.getElementById('twitter-desc');
+
+      if (metaDesc) metaDesc.setAttribute('content', desc);
+      if (ogTitle) ogTitle.setAttribute('content', title);
+      if (ogDesc) ogDesc.setAttribute('content', desc);
+      if (twTitle) twTitle.setAttribute('content', title);
+      if (twDesc) twDesc.setAttribute('content', desc);
+    }
+  };
+
   const NotificationService = {
     async sendDiscord(title, description, fields = [], color = 0xd4af37) {
       const cfg = getConfig();
@@ -314,10 +352,15 @@
       const valid = validator(el.value);
       if (!valid) {
         el.classList.add('is-invalid');
+        el.setAttribute('aria-invalid', 'true');
+        el.closest('.field-wrap')?.classList.add('has-error');
         err.classList.add('show');
         isValid = false;
+        AnalyticsService.track('form_validation_error', { field_id: id });
       } else {
         el.classList.remove('is-invalid');
+        el.removeAttribute('aria-invalid');
+        el.closest('.field-wrap')?.classList.remove('has-error');
         err.classList.remove('show');
       }
       return valid;
@@ -390,6 +433,19 @@
       const iStep = parseInt(ind.getAttribute('data-step'), 10);
       ind.classList.toggle('active', iStep <= state.currentStep);
     });
+
+    // Update Page Meta Title & Description Per Step
+    const stepMeta = [
+      { title: "01 Identity & Contact — The Ink Shop Consultation", desc: "Enter client contact details and residency for tattoo appointment verification." },
+      { title: "02 Artistic Vision — The Ink Shop Consultation", desc: "Specify style category, color preference, and artistic concept." },
+      { title: "03 Placement & Scale — The Ink Shop Consultation", desc: "Select tattoo placement area, dimensions, reference pictures, and cover-up details." },
+      { title: "04 Schedule & Dates — The Ink Shop Consultation", desc: "Choose preferred timetable slots and booking horizon." },
+      { title: "05 Investment & Terms — The Ink Shop Consultation", desc: "Select budget tier and acknowledge studio deposit terms." }
+    ];
+
+    const currentMeta = stepMeta[state.currentStep - 1] || { title: "The Ink Shop — Private Tattoo Atelier", desc: "Bespoke tattoo consultation portal." };
+    AnalyticsService.updateMeta(currentMeta.title, currentMeta.desc);
+    AnalyticsService.track('step_view', { step_number: state.currentStep, step_name: currentMeta.title });
 
     // Update mobile step indicator
     const stepTitles = [
@@ -517,6 +573,8 @@
       `;
     }
 
+    AnalyticsService.track('consultation_submitted', { client_name: data.fullName, style: data.style, budget: data.budget });
+    AnalyticsService.updateMeta("Consultation Dossier Logged — The Ink Shop", "Thank you. Your consultation record has been logged for review.");
     // Switch views to Confirmation Dossier
     document.querySelectorAll('.view-screen').forEach(s => s.classList.remove('active'));
     document.getElementById('success-screen')?.classList.add('active');
@@ -532,6 +590,28 @@
   function initEventListeners() {
     const curYearEl = document.getElementById('cur-year');
     if (curYearEl) curYearEl.textContent = new Date().getFullYear();
+
+    
+    // Cookie Banner Handling
+    const cookieBanner = document.getElementById('cookie-banner');
+    const hasConsented = localStorage.getItem('inkshop_cookie_consent');
+    if (!hasConsented && cookieBanner) {
+      setTimeout(() => {
+        cookieBanner.classList.add('visible');
+      }, 1200);
+    }
+
+    document.getElementById('btn-cookie-accept')?.addEventListener('click', () => {
+      localStorage.setItem('inkshop_cookie_consent', 'accepted');
+      cookieBanner?.classList.remove('visible');
+      AnalyticsService.track('cookie_consent', { status: 'accepted' });
+    });
+
+    document.getElementById('btn-cookie-decline')?.addEventListener('click', () => {
+      localStorage.setItem('inkshop_cookie_consent', 'declined');
+      cookieBanner?.classList.remove('visible');
+      AnalyticsService.track('cookie_consent', { status: 'declined' });
+    });
 
     // Start Booking Triggers
     function startBooking() {

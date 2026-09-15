@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rridwan01.github.io/the-ink-shop/sitemap.xml

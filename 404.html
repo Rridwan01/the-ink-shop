@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <title>404 — Record Not Found | The Ink Shop</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#09090b" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .error-hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+    }
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 12vw, 120px);
+      font-weight: 800;
+      color: var(--accent-ochre);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -0.04em;
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-lead);
+      margin-bottom: 16px;
+    }
+    .error-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body class="studio-theme">
+
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" class="studio-masthead">
+          <span class="masthead-title">THE INK SHOP</span>
+          <span class="masthead-tag">PRIVATE ATELIER &bull; NYC</span>
+        </a>
+      </div>
+      <nav class="header-right">
+        <a href="index.html" class="btn-direct-book">Return to Studio &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <section class="error-hero">
+      <div class="meta-label">[ DOSSIER 404 &bull; RECORD VOID ]</div>
+      <div class="error-code">404</div>
+      <h1 class="error-title">Requested Canvas Not Found</h1>
+      <p class="error-desc">
+        The consultation record, file, or pathway you are seeking does not exist or has been relocated within the atelier.
+      </p>
+      <a href="index.html" class="btn-primary">Return to Consultation Desk &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <strong>THE INK SHOP</strong>
+        <span>Private Studio &bull; New York, NY &bull; By Appointment Only</span>
+      </div>
+      <div class="footer-col text-right">
+        <span class="copyright-note">&copy; <span id="cur-year">2026</span> All custom works copyright The Ink Shop.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('cur-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
