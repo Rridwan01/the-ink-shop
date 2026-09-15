@@ -1,63 +1,36 @@
-# ✦ Luxury Tattoo Studio Booking Portal & Visitor Telemetry App
+# ✦ THE INK SHOP
+### Private Tattoo Atelier & Custom Consultation Portal
 
-A bespoke, editorial tattoo consultation web application designed for high-end tattoo artists. Replaces clunky forms with an inviting studio welcome page, live visitor alerts, and a 5-step guided consultation experience.
-
----
-
-## 🌟 Key Features
-
-1. **Welcoming Hero & Studio Philosophy (Intro Page)**:
-   - Welcomes clients with warmth and clarity before they start the form.
-   - Highlights 3 core studio pillars: *Custom Designs*, *Private Studio Sanctuary (No walk-ins)*, and *Transparent $200 Deposit Policy*.
-   - Includes studio FAQ drawer (rescheduling terms, design drafts, bringing guests).
-
-2. **Real-time Owner Notifications (Visitor Telemetry)**:
-   - **Page View Alert**: Get notified instantly on your phone (via Discord webhook or email) when someone opens your booking link.
-   - **Form Start Alert**: Get pinged when a visitor clicks *"Begin Booking Request"*.
-   - **Full Consultation Submission**: Instant rich embed delivered with all client details, style preferences, placement, sizing, budget, selected schedule slots, and deposit method.
-
-3. **Sophisticated 5-Step Consultation Flow**:
-   - **Step 1: Contact & Eligibility**: Formatted phone, Instagram handle, 18+ gatekeeper check, local vs. traveling status.
-   - **Step 2: Tattoo Vision & Creative Freedom**: Visual style selector cards, pure black & grey vs. color accents, 3-level creative liberty rating, guided description prompts.
-   - **Step 3: Placement, Scale & Smart Media Uploads**: Interactive body placement chips, visual size guide, conditional cover-up flow (asks for existing tattoo age and laser history), drag-and-drop multi-file reference previewer with live thumbnail removal.
-   - **Step 4: Scheduling & Availability**: Timeline selector, date range window, interactive Days $	imes$ Time Slots matrix (Mon/Tue/Thu/Fri/Sat $	imes$ 11:30 AM, 2:30 PM, 4:30 PM).
-   - **Step 5: Investment & Studio Agreements**: Tiered budget chips, numbing cream preference,  4 mandatory studio policy checkboxes ($200 deposit terms, 72h reschedule window, private studio rule, 18+ ID requirement).
-
-4. **Confirmation Receipt**:
-   - Personalized receipt summary card for the client with a *"Save / Print Request Copy"* button and next steps roadmap.
+> Permanent craft tailored to human anatomy. Dedicated to bespoke fine-line, illustrative blackwork, and micro-realism in a private, sterile 1-on-1 studio sanctuary.
 
 ---
 
-## 🚀 How to Set Up Discord Notifications (Free & Instant)
+## 🏛️ Studio Ethos & Conduct
 
-1. In your Discord app, open any private server/channel (e.g. `#tattoo-leads`).
-2. Go to **Channel Settings (⚙️) > Integrations > Webhooks > New Webhook**.
-3. Name it **"Studio Booking Bot"** and click **Copy Webhook URL**.
-4. Open the booking web page in your browser.
-5. Click the **⚙️ (Settings)** icon in the top right header (or footer link).
-6. Paste your Discord Webhook URL and click **"⚡ Send Test Ping"** followed by **"Save Settings"**.
-   *(Alternatively, you can paste the URL directly into `config.js` under `notifications.discordWebhookUrl`).*
+- **Private Studio Sanctuary**: By appointment only. Zero walk-in traffic to ensure focused, intimate, one-on-one sessions.
+- **Custom Composition**: Every design is drawn bespoke for the individual client with intentional consideration of body flow, line longevity, and healing dynamics.
+- **Age Verification**: Strictly 18+ with valid government-issued photo ID required upon arrival.
+- **$200 Security Deposit**: Locks in your dedicated session date and is applied 100% toward the final cost of your tattoo on appointment day.
 
 ---
 
-## 📂 File Structure
+## 📅 Consultation & Booking Process
 
-```
-tattoo-booking-app/
-├── index.html       # Semantic multi-step HTML5 markup
-├── styles.css       # Obsidian & champagne gold luxury dark theme
-├── app.js           # Form validation, image dropzone, multi-step engine, webhook service
-├── config.js        # Studio name, artist handle, available slots, payment methods
-└── README.md        # Documentation and deployment guide
-```
+1. **Submit Consultation Record**: Complete the 5-step dossier outlining your placement, dimensions, reference material, and preferred dates.
+2. **Artistic Review**: All submissions are personally reviewed within 24–48 hours for composition, feasibility, and schedule fit.
+3. **Deposit & Date Lock**: Approved projects receive a direct confirmation message with deposit details to secure the booking.
+4. **Studio Address**: Private studio location and session preparation guidelines are dispatched upon deposit receipt.
 
 ---
 
-## 🌐 Free 1-Click Deployment Options
+## 🌐 Online Booking Portal
 
-You can host this static web app for free on any modern hosting provider:
+Clients can submit their consultation requests directly through the official booking portal:
 
-- **GitHub Pages**: Push this folder to a GitHub repository and turn on Pages under Settings.
-- **Vercel / Netlify**: Drag-and-drop this folder onto [netlify.com/drop](https://app.netlify.com/drop) or deploy via Vercel CLI.
-- **Custom Website Embedding**:
-  - Embed into Squarespace, Wix, or WordPress using an `<iframe>` or by uploading the HTML/CSS/JS assets to your site.
+👉 **[Launch The Ink Shop Booking Portal](https://rridwan01.github.io/the-ink-shop/)**
+
+---
+
+<div align="center">
+  <sub>© The Ink Shop Tattoo Atelier • All custom works and concepts copyright The Ink Shop.</sub>
+</div>
