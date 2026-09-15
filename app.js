@@ -1,5 +1,5 @@
 /**
- * SANCTUM TATTOO ATELIER — BESPOKE BOOKING ENGINE
+ * THE INK SHOP — BESPOKE BOOKING ENGINE
  * Elegant 5-step consultation workflow, drag & drop image handling,
  * and real-time Discord webhook owner alerts on click & submit.
  */
@@ -53,7 +53,7 @@
       }
 
       const payload = {
-        username: "Sanctum Tattoo Atelier",
+        username: "The Ink Shop",
         avatar_url: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=200&auto=format&fit=crop&q=80",
         embeds: [{
           title: title,
@@ -61,7 +61,7 @@
           color: color,
           fields: fields,
           footer: {
-            text: "Sanctum Atelier • Booking Notification Desk"
+            text: "The Ink Shop • Booking Notification Desk"
           },
           timestamp: new Date().toISOString()
         }]

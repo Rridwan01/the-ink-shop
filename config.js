@@ -3,9 +3,9 @@
  * Edit these settings to customize your tattoo booking experience.
  */
 const STUDIO_CONFIG = {
-  studioName: "Sanctum Tattoo Atelier",
-  artistName: "Sanctum",
-  artistHandle: "@sanctum.tattoo",
+  studioName: "The Ink Shop",
+  artistName: "The Ink Shop",
+  artistHandle: "@theinkshop",
   location: "Private Studio • By Appointment Only",
   depositAmount: "$200",
   currency: "USD",
